@@ -2,7 +2,7 @@
 
 [![Contributors](https://img.shields.io/badge/Contributors-%3D%3D%3E-brightgreen)](https://github.com/JoeTech-Studio/UserTags)
 [![GitHub](https://img.shields.io/github/followers/Nira-melany?label=Nira_Melany&style=social)](https://github.com/Niramelany)
-
+[![GitHub](https://img.shields.io/github/followers/Ariana-Cabezas?label=Ariana_Cabezas&style=social)](https://github.com/Ariana200)
 # En este repositorio se encuentran los siguientes archivos:
 ```
 * Documento de plan de pruebas del SGAR
