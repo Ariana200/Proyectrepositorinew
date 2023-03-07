@@ -1,5 +1,8 @@
 # ❱ Proyecto-Final
 
+[![Contributors](https://img.shields.io/badge/Contributors-%3D%3D%3E-brightgreen)](https://github.com/JoeTech-Studio/UserTags)
+[![GitHub](https://github.com/Niramelany)
+
 # En este repositorio se encuentran los siguientes archivos:
 ```
 * Documento de plan de pruebas del SGAR
