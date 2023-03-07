@@ -1,6 +1,7 @@
 # ❱ Proyecto-Final
 
 [![Contributors](https://img.shields.io/badge/Contributors-%3D%3D%3E-brightgreen)](https://github.com/JoeTech-Studio/UserTags)
+[![GitHub](https://img.shields.io/github/followers/Allan-Mendez?label=Allan_Mendez&style=social)](https://github.com/Allanmendez98)
 [![GitHub](https://img.shields.io/github/followers/Nira-melany?label=Nira_Melany&style=social)](https://github.com/Niramelany)
 [![GitHub](https://img.shields.io/github/followers/Ariana-Cabezas?label=Ariana_Cabezas&style=social)](https://github.com/Ariana200)
 
