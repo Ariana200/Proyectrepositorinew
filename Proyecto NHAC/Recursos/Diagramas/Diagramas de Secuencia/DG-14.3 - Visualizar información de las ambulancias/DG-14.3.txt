@@ -1,0 +1,40 @@
+title Visualizar Información de las Ambulancias
+
+actor Gerente
+participant Interfaz
+participant Controlador
+database BBDD
+
+Gerente->Interfaz: SelecionarDatos
+activate Gerente
+activate Interfaz
+Interfaz->Controlador: ConsultarAmbulancia(datos)
+activate Controlador
+Controlador->Controlador: Vaidar(datos)
+activate Controlador
+space 
+deactivate Controlador
+Controlador->BBDD:EstablecerConexión()
+activate BBDD
+
+alt Si se establece la conexión
+BBDD-->>Controlador: ConexiónEstablecida
+Controlador->BBDD: ConsultarDatos(datos)
+
+alt Si se encuentran datos
+BBDD-->>Controlador: RetornaDatosAmbulancia
+Controlador-->>Interfaz: MuestraRegistros
+
+else No se Encuentran datos
+BBDD-->>Controlador: NoExistenRegistros
+Controlador-->>Interfaz: NoExistenAmbulancias
+end
+
+else No se establece la conexión
+BBDD-->>Controlador: ErroDeConexión
+deactivate BBDD
+Controlador-->>Interfaz: VisualizaciónNoGenerada
+deactivate Controlador
+deactivate Interfaz
+deactivate Gerente
+end

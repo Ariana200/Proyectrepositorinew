@@ -1,0 +1,40 @@
+title Consultar Información de la Secretaria
+
+actor Gerente
+boundary Interfaz
+control Controlador
+database BBDD
+
+Gerente->Interfaz: SelecionarDatos
+activate Gerente
+activate Interfaz
+Interfaz->Controlador: ConsultarSecretaria(datos)
+activate Controlador
+Controlador->Controlador: Vaidar(datos)
+activate Controlador
+space 
+deactivate Controlador
+Controlador->BBDD:EstablecerConexión()
+activate BBDD
+
+alt Si se establece la conexión
+BBDD-->>Controlador: ConexiónEstablecida
+Controlador->BBDD: ConsultarDatos(datos)
+
+alt Si se encuentran datos
+BBDD-->>Controlador:RetornaDatosScretaria
+Controlador-->>Interfaz: MuestraRegistros
+
+else No se Encuentran datos
+BBDD-->>Controlador: NoExistenRegistros
+Controlador-->>Interfaz:NoExistenSecretarias
+end
+
+else No se establece la conexión
+BBDD-->>Controlador: ErroDeConexión
+deactivate BBDD
+Controlador-->>Interfaz:ConsultaNoGenerada
+deactivate Controlador
+deactivate Interfaz
+deactivate Gerente
+end

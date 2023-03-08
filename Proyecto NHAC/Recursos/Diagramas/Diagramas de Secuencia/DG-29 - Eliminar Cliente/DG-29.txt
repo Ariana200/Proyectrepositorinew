@@ -1,0 +1,44 @@
+title Eliminar Cliente
+
+actor Gerente
+boundary Interfaz
+control Controlador
+database BBDD
+
+Gerente->Interfaz: EliminarCliente
+activate Gerente
+activate Interfaz
+Interfaz -->>Gerente: ConfirmarEliminar
+Gerente ->Interfaz: Confirmar()
+deactivate Gerente
+Interfaz->Controlador: ConsultarCliente(datos)
+activate Controlador
+Controlador->Controlador: Vaidar(datos)
+activate Controlador
+space 
+deactivate Controlador
+Controlador->BBDD:EstablecerConexión()
+activate BBDD
+
+alt Si se establece la conexión
+BBDD-->>Controlador: ConexiónEstablecida
+Controlador->BBDD: ConsultarDatos(datos)
+
+alt Si se encuentran datos
+BBDD-->>Controlador: DatosEcnontrados
+Controlador ->BBDD:ActualizarDatos()
+BBDD -->>Controlador:DatosActualizados
+Controlador-->>Interfaz: ClienteEliminado
+
+else No se Encuentran datos
+BBDD-->>Controlador: NoExistenRegistros
+Controlador-->>Interfaz: NoExistenCliente
+end
+
+else No se establece la conexión
+BBDD-->>Controlador: ErroDeConexión
+deactivate BBDD
+Controlador-->>Interfaz:FalloDeConexion
+deactivate Controlador
+deactivate Interfaz
+end
