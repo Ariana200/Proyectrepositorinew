@@ -1,0 +1,21 @@
+title Visualizar Información de las Ambulancias
+
+actor Gerente
+participant Interfaz
+participant Controlador
+database BBDD
+
+Gerente-->Interfaz: Seleciona filtro
+activate Gerente
+activate Interfaz
+Gerente->Interfaz: ConsultarAmbulancia(datos)
+Interfaz->Controlador: Validar(datos)
+activate Controlador
+Controlador->BBDD: ConsultarDatos(datos)
+activate BBDD
+BBDD-->Controlador: RetornaDatosAmbulancia
+deactivate BBDD
+Controlador-->Interfaz: MuestraRegistros
+deactivate Controlador
+deactivate Interfaz
+deactivate Gerente
